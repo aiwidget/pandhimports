@@ -9,6 +9,8 @@
  * @package  MK Framework
  */
 
+add_action('header_toolbar_flag', 'mk_header_toolbar_flag');
+add_action('header_toolbar_custom_social', 'mk_header_toolbar_custom_social');
 add_action('header_toolbar_date', 'mk_header_toolbar_date');
 add_action('header_toolbar_menu', 'mk_header_toolbar_menu');
 add_action('header_toolbar_contact', 'mk_header_toolbar_contact');
@@ -29,15 +31,33 @@ add_action('vertical_navigation', 'mk_vertical_navigation');
 add_action('responsive_search', 'mk_responsive_search');
 add_action('side_dashboard', 'mk_side_dashboard');
 
+
+
+/**
+ */
+if (!function_exists('mk_header_toolbar_flag')) {
+    function mk_header_toolbar_flag() {
+        global $mk_options;
+        if ($mk_options['enable_header_date'] == 'true') {
+            echo "<span class='mk-header-date'>
+                <img src='http://www.pandhimports.com.au/wp-content/uploads/2015/11/flag-1.png' />
+                <img src='http://www.pandhimports.com.au/wp-content/uploads/2015/11/flag-2.png' />
+            </span>";
+        }
+    }
+}
+
+/***************************************/
+
 /**
  */
 if (!function_exists('mk_header_toolbar_date')) {
-	function mk_header_toolbar_date() {
-		global $mk_options;
-		if ($mk_options['enable_header_date'] == 'true') {
-			echo '<span class="mk-header-date"><i class="mk-moon-clock"></i>' . date_i18n("F j, Y") . '</span>';
-		}
-	}
+    function mk_header_toolbar_date() {
+        global $mk_options;
+        if ($mk_options['enable_header_date'] == 'true') {
+            echo '<span class="mk-header-date"><i class="mk-moon-clock"></i>' . date_i18n("F j, Y") . '</span>';
+        }
+    }
 }
 
 /***************************************/
@@ -279,30 +299,70 @@ $user_ID = get_current_user_id();
 	}
 }
 
+
+
+
+
+
+
+/***************************************/
+
+/**
+ */
+if (!function_exists('mk_header_toolbar_custom_social')) {
+    function mk_header_toolbar_custom_social() {
+
+        ?>
+        <div class="mk-header-signup">
+                <table class="tool-bar-custom-social-table" >
+                    <td>
+                        <a target="_blanck"  href="https://www.pinterest.com/"><img src="http://www.pandhimports.com.au/wp-content/uploads/2015/11/icon-social-1.png"></a>
+                    </td>
+                    <td>
+                        <a target="_blanck"  href="https://plus.google.com/"><img src="http://www.pandhimports.com.au/wp-content/uploads/2015/11/social-icon-2.png"></a>
+                    </td>
+                    <td>
+                        <a target="_blanck"  href="https://www.tumblr.com/"><img src="http://www.pandhimports.com.au/wp-content/uploads/2015/11/social-icon-3.png"/></a>
+                    </td>
+                    <td>
+                        <a target="_blanck"  href="https://twitter.com/"><img src="http://www.pandhimports.com.au/wp-content/uploads/2015/11/icon-social-4.png"></a>
+                    </td>
+                    <td>
+                        <a target="_blanck" href="https://www.facebook.com/"><img src="http://www.pandhimports.com.au/wp-content/uploads/2015/11/icon-social-5.png"></a>
+                    </td>
+                </table>
+
+            </ul>
+        </div> <?php
+
+    }
+}
+
+
 /***************************************/
 
 /**
  */
 if (!function_exists('mk_header_toolbar_subscribe')) {
-	function mk_header_toolbar_subscribe() {
-		global $mk_options;
+    function mk_header_toolbar_subscribe() {
+        global $mk_options;
 
-		if ($mk_options['header_toolbar_subscribe'] != 'true') {
-			return false;
-		}
+        if ($mk_options['header_toolbar_subscribe'] != 'true') {
+            return false;
+        }
 
-		?>	<div class="mk-header-signup">
-        <a href="#" id="mk-header-subscribe-button" class="mk-subscribe-link mk-toggle-trigger"><i class="mk-moon-envelop"></i><?php _e('Subscribe', 'mk_framework');?></a>
-        <div id="mk-header-subscribe" class="mk-box-to-trigger">
-			<form action="<?php echo $mk_options['mailchimp_action_url'];?>" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
-				<label for="mce-EMAIL"><?php _e('Subscribe to newsletter', 'mk_framework');?></label>
-				<input type="email" value="" name="EMAIL" class="email text-input" id="mce-EMAIL" placeholder="<?php _e('Email Address', 'mk_framework');?>" required>
-				<input type="submit" value="<?php _e('Subscribe', 'mk_framework');?>" name="subscribe" id="mc-embedded-subscribe" class="shop-flat-btn shop-skin-btn">
-			</form>
-		</div>
-      </div> <?php
+        ?>	<div class="mk-header-signup">
+            <a href="#" id="mk-header-subscribe-button" class="mk-subscribe-link mk-toggle-trigger"><i class="mk-moon-envelop"></i><?php _e('Subscribe', 'mk_framework');?></a>
+            <div id="mk-header-subscribe" class="mk-box-to-trigger">
+                <form action="<?php echo $mk_options['mailchimp_action_url'];?>" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+                    <label for="mce-EMAIL"><?php _e('Subscribe to newsletter', 'mk_framework');?></label>
+                    <input type="email" value="" name="EMAIL" class="email text-input" id="mce-EMAIL" placeholder="<?php _e('Email Address', 'mk_framework');?>" required>
+                    <input type="submit" value="<?php _e('Subscribe', 'mk_framework');?>" name="subscribe" id="mc-embedded-subscribe" class="shop-flat-btn shop-skin-btn">
+                </form>
+            </div>
+        </div> <?php
 
-	}
+    }
 }
 
 /***************************************/

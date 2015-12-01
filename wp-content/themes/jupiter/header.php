@@ -132,19 +132,25 @@ if ($show_header != 'no-header' && $show_header != 'no-header-title' && $show_he
     *************************************************************/
     if ($toolbar_toggle == 'true'): ?>
     <div class="mk-header-toolbar">
-      
+
+
+
       <?php
         echo $header_grid_start;
         
         do_action('header_toolbar_before');
+
+
+
          // to add elements using child themes
         
         do_action('header_toolbar_menu');
-        
-        do_action('header_toolbar_date');
+
+        // do_action('header_toolbar_date');
+        do_action('header_toolbar_flag');
         
         do_action('header_toolbar_contact');
-        
+
         do_action('header_toolbar_tagline');
         
         do_action('theme_wpml_language_switch');
@@ -156,10 +162,34 @@ if ($show_header != 'no-header' && $show_header != 'no-header-title' && $show_he
         do_action('header_toolbar_login');
         
         do_action('header_toolbar_subscribe');
-        
+
+        do_action('header_toolbar_custom_social');
+
         do_action('header_toolbar_after');
+
+
+        ?>
+
+
+
+
+
+
+
+
+
+
+
+
+        <?php
+
+
+
          // to add elements using child themes
-        
+
+
+
+
         echo $header_grid_end;
 ?>
     <div class="clearboth"></div>

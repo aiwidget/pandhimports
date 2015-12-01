@@ -124,8 +124,10 @@ h5 {
     height: 65px;
     color: red;
     /* width: 20px; */
-    padding-left: 26px;
-    margin-left: 30px;
+    /*padding-left: 26px;*/
+    /*margin-left: 30px;*/
+
+    margin-left:32px;
 }
 
 .wpcf7-submit:hover {
@@ -167,6 +169,13 @@ h5 {
 .wpb_gmaps_widget, .wpb_wrapper {
     padding:0px !important;
 }
+.wpb_map_wraper {
+    padding:0px !important;
+    margin:0px !important;
+}
+ 
+
+
 
 /*woo commerce*/
 
@@ -234,7 +243,34 @@ div[itemprop="description"] p {
     border:none !important;
 }
 
+/*Tool bar social icon*/
+
+.tool-bar-custom-social-table {
+    margin-right: -5px !important;
+}
+
+/* footer product featured list */
+.product_list_widget img {
+    display: none;
+}
+
+.product_list_widget li {
+    padding:0px;
+    margin:0px !important;
+}
+
+.product_list_widget li span:hover{
+    text-decoration:underline;
+}
+
+
+
+
+
+
 @media handheld, only screen and (min-width: 1140px) {
+
+
 
     li#menu-item-32 {
         /*         border: 1px solid red; */

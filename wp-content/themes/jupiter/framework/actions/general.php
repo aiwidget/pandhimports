@@ -208,7 +208,7 @@ if (!function_exists('mk_theme_breadcrumbs')):
             yoast_breadcrumb('', '');
         } 
         else {
-            
+
             $delimiter = ' &#47; ';
 
             echo '<span xmlns:v="http://rdf.data-vocabulary.org/#"><span typeof="v:Breadcrumb">';
@@ -217,8 +217,11 @@ if (!function_exists('mk_theme_breadcrumbs')):
                 echo '<a href="';
                 echo home_url();
                 echo '" rel="v:url" property="v:title">' . __('Home', 'mk_framework');
-                echo "</a>" . $delimiter;
+                echo "</a>";
+
+                echo " / <a class='woocommerece-products-page-link'  href='http://www.pandhimports.com.au/products-2/'>Products</a>" .   $delimiter;
             }
+
             echo '<span rel="v:child" typeof="v:Breadcrumb">';
             if (function_exists('is_woocommerce') && is_woocommerce() && is_archive()) {
                 $shop_page_id = wc_get_page_id('shop');
