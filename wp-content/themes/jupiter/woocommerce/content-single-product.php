@@ -66,10 +66,6 @@ global $post, $product, $mk_options;
 
 		<?php  endif; } ?>
 
-
-
-
-
 		<div class="clearboth"></div>
 		<div itemprop="description">
 			<?php echo apply_filters( 'woocommerce_short_description', $post->post_excerpt ) ?>
@@ -196,4 +192,36 @@ global $post, $product, $mk_options;
 
 
 
+
+
+<style>
+    #mk-page-introduce {
+        background-color:rgb(255, 255, 255) !important;
+        border-bottom:1px solid white !important;
+    }
+    .mk-header-holder {
+        display: none !important;
+    }
+
+    .mk-zindex-fix h1 {
+        display: none !important;
+    }
+
+    .woocommerece-products-page-link {
+
+    }
+
+    .mk-breadcrumbs-inner {
+        float: left !important;
+    }
+
+    .mk-breadcrumbs-inner a {
+        color:grey !important;
+    }
+
+    .mk-breadcrumbs-inner span {
+        color:black !important;
+    }
+
+</style>
 
