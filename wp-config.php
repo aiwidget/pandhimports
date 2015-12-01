@@ -80,6 +80,9 @@ $table_prefix  = 'wp_';
 define('WP_DEBUG', false);
 
 
+
+
+
 /*
  * Please note, this setting may not work if your host does not
  * allow for increasing the PHP memory limit--in that event,
@@ -88,7 +91,6 @@ define('WP_DEBUG', false);
  * Increase PHP Memory to 64MB
  */
 define( 'WP_MEMORY_LIMIT', '64M' );
-
 
 
 
