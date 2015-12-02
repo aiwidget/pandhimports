@@ -155,7 +155,14 @@ endif;?>
 		<?php } ?>
 
     	<span class="mk-footer-copyright"><?php echo stripslashes($mk_options['copyright']); ?></span>
-    	<?php do_action('footer_menu'); ?>
+
+
+        <div class="footer-logo">
+            <span class="mk-footer-copyright"> Designed by  &nbsp; <a href="http://afcreative.com.au/" target="_blank"><img src="http://www.pandhimports.com.au/wp-content/uploads/2015/12/designer-logo.png"></a> </span>
+        </div>
+
+
+        <?php do_action('footer_menu'); ?>
 	</div>
 	<div class="clearboth"></div>
 </div>

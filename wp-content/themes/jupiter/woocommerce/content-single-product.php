@@ -138,9 +138,17 @@ global $post, $product, $mk_options;
                 {
                     // echo "post = " . strpos('_', $customFieldValue) . '<br>';
                     $pos = strpos($customFieldValue, '_', 1);
+                    $customFieldValueLowerCase = strtolower($customFieldValue);
+
+
                     // echo "key = $customFieldValue  pos = $pos <br>";
                     if(empty($pos)) {
-                        if( get_post_meta($post->ID, $customFieldValue, true) != 'no' and
+
+                    	if($customFieldValueLowerCase == 'fact sheet') {  
+                    		 echo "<td> <a target='_blank' href='" . get_post_meta($post->ID, $customFieldValue, true) . "' class='fact-sheet'> <img src='http://www.pandhimports.com.au/wp-content/uploads/2015/12/fact-sheets.png' /> </a> </td> <td></td><tr>"; 
+                    	} else if($customFieldValueLowerCase == 'serve in') {   
+                    		  echo "<td> <p>" . $customFieldValue . ":</p></td> <td><p class='serve-in'>" . get_post_meta($post->ID, $customFieldValue, true) . '</p></td><tr>';
+                    	} else if( get_post_meta($post->ID, $customFieldValue, true) != 'no' and
                             get_post_meta($post->ID, $customFieldValue, true) != null and
                             get_post_meta($post->ID, $customFieldValue, true) != 'visible'
                         ) {
